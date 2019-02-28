@@ -1,0 +1,6 @@
+dependencies:
+  - role: systemd-service-unit
+    systemd_service_name: osquery_launcher
+    systemd_service_user: "root"
+    systemd_service_command: "/opt/launcher/linux/launcher"
+    systemd_service_params: "--hostname=172.16.137.132:8080 --root_directory=/var/lib/osquery_launcher --enroll_secret={{ kolide_fleet_enroll_secret }} --insecure --osqueryd_path=/opt/launcher/linux/osqueryd"

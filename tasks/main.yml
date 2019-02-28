@@ -1,0 +1,11 @@
+- name: download launcher
+  get_url: url="https://github.com/kolide/launcher/releases/download/0.9.1/launcher_0.9.1.zip" dest=/root/launcher.zip
+
+- name: make /opt/launcher
+  file: dest=/opt/launcher state=directory
+
+- name: unpack launcher
+  unarchive: copy=no src="/root/launcher.zip" dest=/opt/launcher
+
+- name: create /var/lib/osquery_launcher
+  file: dest=/var/lib/osquery_launcher state=directory mode=0750
